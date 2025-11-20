@@ -6,6 +6,7 @@ import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import LinkStats from "./pages/LinkStats";
 import { api } from "./api/client";
+import HealthStatus from "./pages/HealthStatus";
 
 export default function App() {
   const [user, setUser] = useState(null);
@@ -24,7 +25,7 @@ export default function App() {
         setUser(null);
         setLoading(false);
       });
-      //eslint-disable-next-line
+    //eslint-disable-next-line
   }, []);
 
   const handleLogin = (u) => {
@@ -57,6 +58,7 @@ export default function App() {
 
         <Route path="/dashboard" element={<Dashboard user={user} />} />
         <Route path="/links/:code" element={<LinkStats />} />
+        <Route path="/healthz" element={<HealthStatus />} />
 
         <Route path="*" element={<div className="p-6">Not found</div>} />
       </Routes>
