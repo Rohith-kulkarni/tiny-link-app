@@ -15,7 +15,7 @@ export default function App() {
 
   // Auto-detect login state (cookie-based)
   useEffect(() => {
-    api(`${u}/api/auth/me`)
+    api(`${url}/api/auth/me`, { method: "GET" })
       .then((data) => {
         setUser(data.user);
         setLoading(false);
