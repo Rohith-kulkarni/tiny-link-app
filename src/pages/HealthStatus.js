@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { api } from "./api"; // adjust path
+import { api } from "../api/client";
 
 export default function HealthStatus() {
   const [status, setStatus] = useState(null);
