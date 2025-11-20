@@ -15,7 +15,7 @@ export default function Dashboard({ user }) {
   const fetchLinks = async () => {
     setLoading(true);
     try {
-      const res = await api(`${url}/api/links`);
+      const res = await api(`${url}/api/links`,{method:'GET'});
       setLinks(res);
       console.log(res);
     } catch (err) {
