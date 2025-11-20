@@ -3,7 +3,6 @@
 
 export async function api(path, options = {}) {
   const res = await fetch(path, {
-    method: "GET",
     credentials: "include", // IMPORTANT: sends auth_token cookie
     headers: {
       "Content-Type": "application/json",
