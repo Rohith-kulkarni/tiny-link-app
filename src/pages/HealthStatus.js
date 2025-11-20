@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { api } from "./api"; // adjust path
 
 export default function HealthStatus() {
   const [status, setStatus] = useState(null);
@@ -9,19 +10,19 @@ export default function HealthStatus() {
   useEffect(() => {
     async function fetchHealth() {
       try {
-        const res = await fetch(`${url}/healthz`, { method: "GET" });
-        if (!res.ok) throw new Error("Failed to fetch health status");
-        const data = await res.json();
+        const data = await api(`${url}/healthz`, {
+          method: "GET",
+        });
         setStatus(data);
       } catch (err) {
-        setError(err.message);
+        setError(err.message || "Error fetching health");
       } finally {
         setLoading(false);
       }
     }
 
     fetchHealth();
-    // eslint-disable-next-line
+    //eslint-disable-next-line
   }, []);
 
   if (loading) return <p className="text-blue-500">Checking health...</p>;
