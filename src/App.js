@@ -24,6 +24,7 @@ export default function App() {
         setUser(null);
         setLoading(false);
       });
+      //eslint-disable-next-line
   }, []);
 
   const handleLogin = (u) => {
